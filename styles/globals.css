@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Supermercado+One&display=swap");
+* {
+  font-family: "Inconsolata", monospace;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -11,6 +14,113 @@ a {
   text-decoration: none;
 }
 
+a .list {
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.main-space {
+  margin-bottom: 150px;
+}
+.carrusel {
+  border-radius: 5px;
+}
+
+.popular {
+  background: #faedcd;
+  border-radius: 5px;
+}
+
+.parrafo {
+  text-align: justify;
+}
+
+.card-body h3 {
+  font-family: "Supermercado One", cursive;
+}
+
+.footer {
+  background: #9c6644;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.footer h3 {
+  color: white;
+}
+
+.footer a {
+  color: rgb(194, 189, 189);
+  text-decoration: none;
+}
+
+svg {
+  color: white;
+}
+
+div .tercero ul {
+  padding-top: 10px;
+  color: white;
+  list-style: none;
+}
+
+@media screen and (min-width: 991px) {
+  div .tercero h3 {
+    padding-left: 6%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .card-body h3 {
+    font-size: 20px;
+  }
+
+  .card-body p {
+    font-size: 15px;
+  }
+
+  div .primero {
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 20px;
+  }
+
+  div .segundo {
+    padding-top: 5px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  div .tercero h3 {
+    text-align: center;
+  }
+
+  div .tercero ul {
+    padding-left: 30%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card-body h3 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .card-body p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div .tercero ul {
+    padding-left: 20%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  div .tercero ul {
+    padding-left: 15%;
+  }
 }
