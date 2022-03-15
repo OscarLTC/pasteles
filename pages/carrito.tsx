@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import { useState } from "react"
 import { useRecoilValue } from "recoil"
-import { carritoState } from "../storage/canasta.atom"
+import { carritoState } from "../storage/carrito.atom"
 
 const Carrito: NextPage = () =>{
     const carrito = useRecoilValue(carritoState);
@@ -20,11 +20,11 @@ const Carrito: NextPage = () =>{
                             <div className="col-8 tet center">
                                 <div className="card-body">
                                     <h5 className="card-title">{pastel.nombre}</h5>
-                                    <p className="card-text">{pastel.descripcion}</p>
                                 </div>
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item"><b>Precio: </b>{pastel.precio} soles</li>
-                                    <li className="list-group-item">Category: {pastel.categoria.nombre}</li>
+                                    <li className="list-group-item"><b>Categoria: </b> {pastel.categoria}</li>
+                                    <li className="list-group-item"><b>Cantidad: </b> {pastel.cantidad}</li>
                                 </ul>
                             </div>
                         </div>
