@@ -23,7 +23,7 @@ a .list {
 }
 
 .main-space {
-  margin-bottom: 150px;
+  margin-bottom: 160px;
 }
 .carrusel {
   border-radius: 5px;
@@ -82,6 +82,10 @@ div .tercero ul {
     font-size: 15px;
   }
 
+  .main-space {
+    margin-bottom: 380px;
+  }
+
   div .primero {
     text-align: center;
     border-bottom: 1px solid #dee2e6;
@@ -110,6 +114,10 @@ div .tercero ul {
   }
   .card-body p {
     font-size: 20px;
+  }
+
+  .main-space {
+    margin-bottom: 350px;
   }
 }
 

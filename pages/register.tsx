@@ -4,10 +4,10 @@ import { useEffect } from "react"
 const Register: NextPage = () => {
     
     return (
-        <div className="text-center form">
+        <div className="text-center form mx-2">
             <main className="form-signin">
                 <form>
-                    <img className="mb-5" src="../images/logoForm.png" alt="" width="150" height="150"/>
+                    <img className="mb-5 img-form" src="../images/logoForm.png" alt="" width="150" height="150"/>
 
                         <div className="form-floating">
                             <input type="text" className="form-control name-user" required autoComplete="off" id="NombreID" placeholder="Usuario"/>

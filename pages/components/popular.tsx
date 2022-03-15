@@ -1,23 +1,19 @@
-import Image from "next/image"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import { useRecoilState } from "recoil"
-import { carritoState } from "../../storage/canasta.atom"
 
 export const Popular = () =>{
 
-    const [carrito, setCarrito] = useRecoilState(carritoState)
-
+    const router = useRouter();
     const [pasteles, setPasteles] = useState([])
 
+    const onDetalleClick = (pastel:any) => () => {
+        router.push('pasteles/detalles/'+ pastel.id);
+    }
     useEffect(() => {
         fetch('http://localhost:3906/api/pasteles')
         .then((response) => (response.json()))
         .then( (data) => (setPasteles(data)))
     }, []);
-
-    const onComprarClick =  (pastel:any) => () => {
-        setCarrito([...carrito, pastel])
-    }
 
     return(
         <div className="container-fluid popular" id="productos" >
@@ -29,7 +25,7 @@ export const Popular = () =>{
                             {pasteles.map((pastel: any) => (
                                 <div className="col" key={pastel.id}>
                                 <div className="card shadow-sm">
-                                    <img src={pastel.url} alt="" className="img-fluid" />
+                                    <img src={pastel.url} alt="" className="img-fluid card-img-top" />
                                     <div className="card-body">
                                         <h3>{pastel.nombre}</h3>
                                         <p className="card-text parrafo">{pastel.descripcion}</p>
@@ -37,7 +33,7 @@ export const Popular = () =>{
                                             <div className="btn-group">
                                                 <button type="button"
                                                     className="btn btn-sm btn-outline-dark"
-                                                    onClick={onComprarClick(pastel)}>Comprar</button>
+                                                    onClick={onDetalleClick(pastel)}>Ver Detalle</button>
                                             </div>
                                             <small className="text-muted"><span>{pastel.precio}</span> Soles</small>
                                         </div>

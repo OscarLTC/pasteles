@@ -1,7 +1,7 @@
 import styles from '../styles/Footer.module.css'
 export const Footer = () => {
     return (
-            <footer className="footer fixed-bottom text-muted pt-4 pb-2">
+            <footer className="footer fixed-bottom text-muted pt-4 pb-2 mx-2">
         <div className="container-fluid">
             <div className="row">
                 <div className="col-lg-4 col-xs-12 pb-sm-4 ">

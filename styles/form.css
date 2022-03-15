@@ -2,9 +2,10 @@
   align-items: center;
   font-family: "Inconsolata", monospace;
   background: rgba(250, 237, 205, 0.6);
+  border-radius: 5px;
 }
 
-img {
+.img-form {
   margin-top: 1.6em;
 }
 

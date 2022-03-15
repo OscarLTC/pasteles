@@ -2,10 +2,10 @@ import { NextPage } from "next"
 
 const Login: NextPage = () =>{
     return (
-        <div className="text-center form">
+        <div className="text-center form mx-2 mt-1">
             <main className= "form-signin">
                 <form>
-            <img className="mb-5" src="../images/logoForm.png" alt="" width="150" height="150"/>
+            <img className="mb-5 img-form" src="../images/logoForm.png" alt="" width="150" height="150"/>
 
             <div className="form-floating">
                 <input type="text" className="form-control name-user" required autoComplete="off" id="UserID" placeholder="User"/>
@@ -16,7 +16,7 @@ const Login: NextPage = () =>{
                 <label htmlFor="floatingPassword" >Contraseña</label>
             </div>
 
-            <div className="form-check form-switch mb-4">
+            <div className="form-check form-switch mb-3">
                 <input className="form-check-input bg-warning" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                 <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Recordar Contraseña</label>
             </div>

@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import { Suspense, useEffect } from "react"
-import { ListaCategorias } from "./components/lista-categorias"
-import { ListaPasteles } from "./components/lista-pasteles"
+import { ListaCategorias } from "../components/lista-categorias"
+import { ListaPasteles } from "../components/lista-pasteles"
 
 const Pasteles: NextPage = () =>{
     return (
