@@ -10,7 +10,7 @@ export const Popular = () =>{
         router.push('pasteles/detalles/'+ pastel.id);
     }
     useEffect(() => {
-        fetch('http://localhost:3906/api/pasteles')
+        fetch('http://localhost:3906/api/pasteles/ranking')
         .then((response) => (response.json()))
         .then( (data) => (setPasteles(data)))
     }, []);

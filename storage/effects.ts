@@ -1,5 +1,8 @@
 export const localStorageEffect = (key:any) => ({setSelf, onSet}:any) => {
-    const savedValue = localStorage.getItem(key)
+  if(typeof localStorage == "undefined"){
+    return;
+  }  
+  const savedValue = localStorage.getItem(key)
     if (savedValue != null) {
       setSelf(JSON.parse(savedValue));
     }

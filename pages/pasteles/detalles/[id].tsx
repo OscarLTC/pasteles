@@ -46,6 +46,8 @@ const Detalle: NextPage = () => {
             }
             setCarrito([...carrito, itemPastel])
         }
+
+        router.push('/carrito')
     }
 
     const onCantidadChange = (event: any) => {
@@ -55,10 +57,10 @@ const Detalle: NextPage = () => {
         <div className="container">
             <div className="card mt-5">
                 <div className="row align-items-center">
-                    <div className="col-4 border-end text-center">
-                        <img src={pastel?.url} className=" mx-1  card-img-top rounded" alt="..." />
+                    <div className="col-lg-4 text-center">
+                        <img src={pastel?.url} className=" mx-lg-1 card-img-top rounded" alt="..." />
                     </div>
-                    <div className="col-8 tet center">
+                    <div className="col-lg-8 borde-detalle">
                         <div className="card-body">
                             <h5 className="card-title display-6">{pastel?.nombre}</h5>
                             <p className="card-text"><strong>Descripcion: </strong>{pastel?.descripcion}</p>

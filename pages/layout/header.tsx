@@ -1,13 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Component, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRouter } from "next/router";
+import { Component, useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { buscarState } from "../../storage/bucar.atom";
 import { carritoState } from "../../storage/carrito.atom";
 
 
 export const Header = () => {
+    
+    const router = useRouter();
     const [user, setUser] = useState(true);
     const carrito = useRecoilValue(carritoState);
+    const setBuscar = useSetRecoilState(buscarState);
+
+
+    const onBuscarKeyUp = (event: any) => {
+        if(event.key == "Enter"){
+            setBuscar(event.target.value)
+            router.push("/pasteles")
+            event.target.value = ''
+        }
+    };
+
+    const onBuscarKeyPress = (event: any) => {
+        if(event.key == "Enter"){
+            event.preventDefault();
+        }
+    }
 
     return (
         <header className="bg-light text-dark">
@@ -40,8 +60,8 @@ export const Header = () => {
                     </ul>
 
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5">
-                        <input type="search" className="form-control form-control-dark " placeholder="Buscar..."
-                            aria-label="Search" />
+                        <input type="text" className="form-control form-control-dark " placeholder="Buscar..."  
+                        onKeyUp={onBuscarKeyUp} aria-label="Search" onKeyPress={onBuscarKeyPress}/>
                     </form>
                     {
                         user ? <div>

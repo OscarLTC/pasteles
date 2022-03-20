@@ -6,8 +6,8 @@ import { localStorageEffect } from "./effects";
 export const carritoState = atom<Canasta[]>({
     key: 'carritoState', 
     default: [],
-    // effects: [
-    //     localStorageEffect('carrito'),
-    //   ]
+    effects: [
+        localStorageEffect('carrito'),
+      ]
 })
 

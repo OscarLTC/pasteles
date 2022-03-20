@@ -42,6 +42,10 @@ a .list {
   font-family: "Supermercado One", cursive;
 }
 
+.borde-detalle {
+  border-left: 1px solid #dee2e6;
+}
+
 .footer {
   background: #9c6644;
   border-top-right-radius: 5px;
@@ -107,6 +111,12 @@ div .tercero ul {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .borde-detalle {
+    border-left: 0;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .card-body h3 {
     font-size: 30px;
@@ -118,6 +128,16 @@ div .tercero ul {
 
   .main-space {
     margin-bottom: 350px;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .tituloD {
+    font-size: 30px;
+  }
+
+  .descripcionD {
+    font-size: 30px;
   }
 }
 

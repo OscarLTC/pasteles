@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
+import { buscarState } from "../../storage/bucar.atom";
 import { categoriaState } from "../../storage/categoria.atom";
 
 export const ListaCategorias= () => {
 
     const setCategoria = useSetRecoilState(categoriaState);
 
+    const setBuscar = useSetRecoilState(buscarState)
     const [categorias, setCategorias] = useState([])
 
     useEffect(() => {
@@ -15,10 +17,12 @@ export const ListaCategorias= () => {
     }, []);
 
     const onCategoryClick = (categoria:any) => () => {
+        setBuscar('');
         setCategoria(categoria.id);
     }
 
     const onTodosClick = () => {
+        setBuscar('')
         setCategoria('');
     }
 
