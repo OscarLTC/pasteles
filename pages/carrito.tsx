@@ -1,20 +1,14 @@
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 import { useRecoilState } from "recoil"
+import { userState } from "../storage/auth.atom"
 import { carritoState } from "../storage/carrito.atom"
 
 const Carrito: NextPage = () => {
 
     const [carrito, setCarrito] = useRecoilState(carritoState);
-
+    const [user, setUser] = useRecoilState(userState);
     const router = useRouter();
-
-    // const [compra, setCompra] = useState(carrito.length > 0);
-
-    // useEffect(() => {
-    //     setCompra(carrito.length > 0)
-    // }, [carrito]);
-
 
     const onEliminarClick = (pastel:any) => () => {
         const nuevoCarrito = carrito.filter( item => item.id != pastel.id);
@@ -22,32 +16,12 @@ const Carrito: NextPage = () => {
     }
 
     const onComprarClick = () => {
-        const compra = {
-            idusuario : 12,
-            detalle : carrito.map(pastel => ({
-                idpastel : pastel.id,
-                cantidad : pastel.cantidad,
-                subtotal : pastel.cantidad * pastel.precio
-            }))
+        if(!user){
+            router.push("/login")//CheckOut
+            return
         }
 
-        console.log(compra)
-
-        fetch('http://localhost:3906/api/carrito/compra', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(compra)
-           }
-        )
-        .then(() => {
-            alert("Venta realizada")
-            setCarrito([])
-            router.push('/')
-        })
-
+        router.push("/checkout")
     }
 
     
@@ -56,7 +30,7 @@ const Carrito: NextPage = () => {
         <div className="container mt-5">
             {
                 carrito.length > 0 ? <div className="table-responsive">
-                <table className="table">
+                <table className="table ">
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -75,7 +49,7 @@ const Carrito: NextPage = () => {
                             <td className="align-middle">{pastel.categoria}</td>
                             <td className="align-middle">{pastel.precio}</td>
                             <td className="align-middle">{pastel.cantidad}</td>
-                            <td className="align-middle">{(pastel.cantidad) * (pastel.precio)}</td>
+                            <td className="align-middle">S/.{(pastel.cantidad) * (pastel.precio)}</td>
                             <td className="align-middle">
                                 <button className="btn btn-sm btn-danger" onClick={onEliminarClick(pastel)}>Eliminar</button>
                             </td>
@@ -87,18 +61,20 @@ const Carrito: NextPage = () => {
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td className="fw-bold">Total</td>
-                            <td>{
+                            <td className="fw-bold">Total </td>
+                            <td>S/. {
                                     //Revisar
                                     carrito.flatMap(pastel => pastel.cantidad * pastel.precio).reduce((sum, current) => sum + current, 0)    
                                 }
                             </td>
                             <td>
-                                <button className="btn btn-sm btn-dark" onClick={onComprarClick}>Comprar</button>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
+                <div className="text-end">
+                    <button className="btn btn-lg btn-dark" onClick={onComprarClick}>Ir a Pagar</button>
+                </div>
             </div> : <div className="row">
                 <img src="https://pizzeriacasadecampo.com/static/images/cart/empty_cart.png" alt="" className="col-md-5"/>
                 <div className="col-md-7">

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Component, useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useState } from "react";
+import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from "recoil";
+import { userState } from "../../storage/auth.atom";
 import { buscarState } from "../../storage/bucar.atom";
 import { carritoState } from "../../storage/carrito.atom";
 
@@ -10,10 +10,13 @@ import { carritoState } from "../../storage/carrito.atom";
 export const Header = () => {
     
     const router = useRouter();
-    const [user, setUser] = useState(true);
+    const [user, setUser] = useRecoilState(userState);
     const carrito = useRecoilValue(carritoState);
     const setBuscar = useSetRecoilState(buscarState);
 
+    const onSalirClick = () => {
+        setUser(null)
+    }
 
     const onBuscarKeyUp = (event: any) => {
         if(event.key == "Enter"){
@@ -65,10 +68,10 @@ export const Header = () => {
                     </form>
                     {
                         user ? <div>
-                            <div className="flex-shrink-0 dropdown">
-                                <a href="#" className="d-block link-dark text-decoration-none dropdown-toggle pt-1" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle" />
-                                </a>
+                            <div>
+                                <img src="/images/user.png" className="mt-4"/>
+                                {user.nombre}
+                                <button className="btn btn-sm btn-outline-danger mx-3" onClick={onSalirClick}>Cerrar Sesion</button>
                             </div>
                         </div> : <div className="text-xxl-end text-lg-center">
                             <Link href='/login'>

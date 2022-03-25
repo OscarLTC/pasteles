@@ -15,7 +15,7 @@ export const Footer = () => {
                         <h3>Redes Sociales</h3>
                         <div className="row align pt-2">
                             <div className="col-4 text-end">
-                                <a href="https://es-la.facebook.com/pasteleria.milagros">
+                                <a href="https://es-la.facebook.com/pasteleria.milagros" target="_blank" rel="noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         className="bi bi-facebook" viewBox="0 0 16 16">
                                         <path
@@ -24,7 +24,7 @@ export const Footer = () => {
                                 </a>
                             </div>
                             <div className="col-4">
-                                <a href="https://api.whatsapp.com/send/?phone=%2B51946657224&text&app_absent=0">
+                                <a href="https://api.whatsapp.com/send/?phone=%2B51946657224&text&app_absent=0" target="_blank" rel="noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         className="bi bi-whatsapp" viewBox="0 0 16 16">
                                         <path
@@ -33,7 +33,7 @@ export const Footer = () => {
                                 </a>
                             </div>
                             <div className="col-4 text-start">
-                                <a href="https://www.instagram.com/pasteleriamilagros.pe/">
+                                <a href="https://www.instagram.com/pasteleriamilagros.pe/" target="_blank" rel="noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                         className="bi bi-instagram" viewBox="0 0 16 16">
                                         <path

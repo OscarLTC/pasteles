@@ -24,7 +24,7 @@ export const ListaCategorias= () => {
     const onTodosClick = () => {
         setBuscar('')
         setCategoria('');
-    }
+    }   
 
     return(<div className="col-lg-2 col-sm-3" >
     <div className="card-body mx-2">
