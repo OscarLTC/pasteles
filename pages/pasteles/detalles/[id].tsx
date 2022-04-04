@@ -1,9 +1,7 @@
-import { timeEnd } from "console";
 import { NextPage } from "next"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { pathToFileURL } from "url";
 import { carritoState } from "../../../storage/carrito.atom";
 import { Canasta } from "../../../storage/canasta.model";
 

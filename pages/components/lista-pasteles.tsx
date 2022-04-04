@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { pastelesSelector } from "../../storage/canasta.selector";
 

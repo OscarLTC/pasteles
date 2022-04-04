@@ -1,7 +1,7 @@
 import { NextPage } from "next"
 import router from "next/router"
-import { useEffect, useState } from "react"
-import { RecoilValueReadOnly, useRecoilState } from "recoil"
+import { useState } from "react"
+import { useRecoilState } from "recoil"
 import { userState } from "../storage/auth.atom"
 
 const Register: NextPage = () => {
