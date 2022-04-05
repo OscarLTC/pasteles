@@ -69,7 +69,7 @@ const Checkout: NextPage = () => {
                 <div className="input-group mb-3">
                     <span className="input-group-text" id="basic-addon1">Dirección</span>
                     <input type="text" className="form-control bg-light" placeholder="Direccion" 
-                        aria-describedby="basic-addon1" value={user?.direcicon}/>
+                        aria-describedby="basic-addon1" defaultValue={user?.direcicon} />
                 </div>
                 <div className="input-group mb-3">
                     <span className="input-group-text" id="basic-addon1">Telefono</span>
